@@ -7,7 +7,7 @@ Aplicativo web que mostra **em quantos minutos cada ônibus chega no seu ponto**
 > Global Solution 2026.2 · Application Development · 2º ano de Ciência da Computação (FIAP)
 > Área de desafio: *Citizen Intelligence & Predictive Analytics*
 
-**App publicado:** https://SEU-PROJETO.vercel.app  ← trocar pelo link do Vercel
+**App publicado:** https://meu-ponto-sp.vercel.app
 
 ---
 
@@ -82,7 +82,7 @@ para o mapa, OpenStreetMap para os mapas de fundo e uma função Node.js na Verc
 Pré-requisito: [Node.js 20 ou mais novo](https://nodejs.org/).
 
 ```bash
-git clone https://github.com/SEU-USUARIO/meu-ponto-sp.git
+git clone https://github.com/thebezz/meu-ponto-sp.git
 cd meu-ponto-sp
 
 # macOS / Linux
