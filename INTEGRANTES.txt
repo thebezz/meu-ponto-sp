@@ -1,0 +1,17 @@
+GLOBAL SOLUTION 2026.2 - APPLICATION DEVELOPMENT
+Turma 2CC - Prof. Rodrigo Moraes
+Projeto: Meu Ponto SP
+
+INTEGRANTES E RESPONSABILIDADES
+-------------------------------
+
+Miguel Silva Bezerra - RM566763
+  - Função serverless de integração com a API Olho Vivo (api/olhovivo.js): login, cookie de sessão e rotas permitidas
+  - Painel de próximos ônibus com atualização automática e avisos de chegada (public/js/app.js, public/js/telas.js)
+  - Publicação na Vercel e README
+
+[Nome do integrante 2] - RM: ______
+  - [Ex.: mapa com Leaflet: ônibus em tempo real e pontos da linha (public/js/mapa.js)]
+
+[Nome do integrante 3] - RM: ______
+  - [Ex.: layout responsivo, alto contraste e fonte grande (public/css/style.css, public/index.html); favoritos (public/js/armazenamento.js)]

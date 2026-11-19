@@ -1,0 +1,13 @@
+{
+  "name": "meu-ponto-sp",
+  "version": "1.0.0",
+  "description": "Painel de próximos ônibus e mapa ao vivo usando a API Olho Vivo da SPTrans",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Veja quando o seu ônibus chega e onde ele está agora, com dados da SPTrans.">
+  <meta name="theme-color" content="#0b5d4b">
+  <title>Meu Ponto SP — próximos ônibus em tempo real</title>
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="marca">
+      <img src="img/icone.svg" alt="" width="32" height="32">
+      <div>
+        <h1>Meu Ponto SP</h1>
+        <p>Próximos ônibus e mapa ao vivo</p>
+      </div>
+    </div>
+    <div class="acessibilidade" role="group" aria-label="Acessibilidade">
+      <button type="button" id="btn-fonte" class="botao-icone" aria-pressed="false"
+              title="Aumentar o tamanho do texto" aria-label="Aumentar o tamanho do texto">A+</button>
+      <button type="button" id="btn-contraste" class="botao-icone" aria-pressed="false"
+              title="Ativar alto contraste"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><span class="visualmente-oculto">Alto contraste</span></button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="lateral" aria-label="Busca e painel">
+
+      <!-- Busca -->
+      <form id="form-busca" class="cartao busca" autocomplete="off">
+        <div class="abas" role="tablist">
+          <button type="button" role="tab" class="aba ativa" data-aba="pontos" aria-selected="true">Pontos</button>
+          <button type="button" role="tab" class="aba" data-aba="linhas" aria-selected="false">Linhas</button>
+        </div>
+        <label for="campo-busca" class="visualmente-oculto">Termo de busca</label>
+        <div class="linha-busca">
+          <input id="campo-busca" type="search" required minlength="2"
+                 placeholder="Nome da rua ou do ponto (ex.: Paulista)">
+          <button type="submit" class="botao primario">Buscar</button>
+        </div>
+        <button type="button" id="btn-localizacao" class="botao link">
+          📍 Usar minha localização para ordenar por distância
+        </button>
+      </form>
+
+      <!-- Favoritos -->
+      <section id="favoritos" class="cartao" hidden>
+        <h2>⭐ Pontos favoritos</h2>
+        <ul id="lista-favoritos" class="chips"></ul>
+      </section>
+
+      <!-- Linha que está sendo acompanhada no mapa -->
+      <section id="linha-seguida" class="cartao destaque" hidden>
+        <div class="cabecalho-cartao">
+          <div>
+            <h2 id="linha-nome"></h2>
+            <p id="linha-detalhe" class="secundario"></p>
+          </div>
+          <button type="button" class="botao-fechar" id="btn-parar-linha" aria-label="Parar de acompanhar a linha">×</button>
+        </div>
+      </section>
+
+      <!-- Painel do ponto -->
+      <section id="painel" class="cartao" hidden>
+        <div class="cabecalho-cartao">
+          <div>
+            <h2 id="painel-nome"></h2>
+            <p id="painel-endereco" class="secundario"></p>
+          </div>
+          <button type="button" id="btn-favorito" class="botao-icone" aria-pressed="false"
+                  title="Salvar nos favoritos">☆</button>
+        </div>
+        <div class="barra-painel">
+          <label class="interruptor">
+            <input type="checkbox" id="filtro-acessivel">
+            <span>♿ Só veículos acessíveis</span>
+          </label>
+          <span id="painel-status" class="secundario" aria-live="polite"></span>
+        </div>
+        <ul id="lista-previsoes" class="lista" aria-live="polite"></ul>
+      </section>
+
+      <!-- Resultados da busca -->
+      <section id="resultados" class="cartao" hidden aria-live="polite">
+        <div class="cabecalho-cartao">
+          <h2 id="titulo-resultados">Resultados</h2>
+          <button type="button" class="botao-fechar" data-fechar="resultados" aria-label="Fechar resultados">×</button>
+        </div>
+        <ul id="lista-resultados" class="lista"></ul>
+      </section>
+
+      <section id="boas-vindas" class="cartao">
+        <h2>Como usar</h2>
+        <ol class="passos">
+          <li>Busque o seu ponto pelo nome da rua.</li>
+          <li>Veja em quantos minutos cada ônibus chega. O painel se atualiza sozinho.</li>
+          <li>Toque em uma linha para ver os ônibus dela no mapa, ao vivo.</li>
+          <li>Toque em 🔔 para ser avisado quando o ônibus estiver a 5 minutos.</li>
+        </ol>
+      </section>
+    </section>
+
+    <section class="area-mapa" aria-label="Mapa">
+      <div id="mapa"></div>
+    </section>
+  </main>
+
+  <div id="aviso" class="aviso" role="status" hidden></div>
+
+  <footer class="rodape">
+    Dados de transporte: <a href="https://www.sptrans.com.br/desenvolvedores/" target="_blank" rel="noopener">SPTrans — API Olho Vivo</a>.
+    Previsões são estimativas da SPTrans e podem variar.
+    Mapa © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
