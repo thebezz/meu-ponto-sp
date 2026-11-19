@@ -10,8 +10,8 @@ Miguel Silva Bezerra - RM566763
   - Painel de próximos ônibus com atualização automática e avisos de chegada (public/js/app.js, public/js/telas.js)
   - Publicação na Vercel e README
 
-[Nome do integrante 2] - RM: ______
-  - [Ex.: mapa com Leaflet: ônibus em tempo real e pontos da linha (public/js/mapa.js)]
+Lincoln Simão Pereira - RM567284
+  - Mapa com Leaflet: ônibus em tempo real e pontos da linha (public/js/mapa.js)
 
-[Nome do integrante 3] - RM: ______
-  - [Ex.: layout responsivo, alto contraste e fonte grande (public/css/style.css, public/index.html); favoritos (public/js/armazenamento.js)]
+Nicolas Sakaue Nishimura - RM567752
+  - Layout responsivo, alto contraste e fonte grande (public/css/style.css, public/index.html); favoritos (public/js/armazenamento.js)
